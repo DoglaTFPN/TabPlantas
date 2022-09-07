@@ -14,24 +14,30 @@ import android.widget.TextView;
 
 
 public class HomeFragment extends Fragment {
-    ListView lsdGatos;
+    ListView listView;
 
-    String nomeGato[]=
+    String nomePlanta[]=
             {
-                    "Gato da Quebrada",
-                    "Nerdola otaku",
-                    "Gato Pomba",
-                    "Gato Romano"
+                    "Almeirão-de-árvore",
+                    "Azedinha",
+                    "Beldroega",
+                    "Bertalha",
+                    "Capuchinha"
             };
-    String descricaoGato[]=
+    String resumoPlanta[]=
             {
-            "O maior cheirador de pó de todos os tempos!!!",
-            "Vive assistindo anime e chorando no telhado!!!",
-            "Parece uma POMBA!!!",
-            "estudou com maquiaveL1"
+            "Plantio. Conservação e usos. Receitas. Almeirão-de-árvore: ornamenta e alimenta.",
+            "Plantio. Conservação e usos. Receita. Azedinha: salada pronta.",
+            "Plantio. Conservação e usos. Receita. Beldroega: reconhecida desde 1500.",
+            "Plantio. Conservação e usos. Receita. Bertalha: feiras livres e tradição.",
+            "Plantio. Conservação e usos. Receita. Capuchinha: curiosidade do nome."
             };
     int imagemPlanta[]={
-            R.drawable.almeiro
+            R.drawable.almeiro,
+            R.drawable.azedinha,
+            R.drawable.beldroega,
+            R.drawable.bertalha,
+            R.drawable.capuchinha
     };
 
     @Override
@@ -40,7 +46,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        lsdGatos = view.findViewById(R.id.listaPlantas);
+        listView = view.findViewById(R.id.listaPlantas);
 
         //instanciando a classe adaptadora
 
@@ -48,7 +54,7 @@ public class HomeFragment extends Fragment {
 
         //carregar a lista com o adaptador
 
-        lsdGatos.setAdapter(adaperGatos);
+        listView.setAdapter(adaperGatos);
 
         return view;
     }
@@ -73,22 +79,20 @@ public class HomeFragment extends Fragment {
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
 
-            TextView txtNomeGato, txtDescricaoGato, txtNumGato;
-            ImageView imgModeloGato;
+            TextView txtNomePlanta, txtResumoPlanta;
+            ImageView imgModeloPlanta;
 
             View v = getLayoutInflater().inflate(R.layout.modelogatos, null);
 
 
 
-            txtNomeGato = v.findViewById(R.id.txtNomeGato);
-            txtDescricaoGato = v.findViewById(R.id.txtDescricaoGato);
-            txtNumGato = v.findViewById(R.id.txtNumGato);
-            imgModeloGato = v.findViewById(R.id.imgModeloGato);
+            txtNomePlanta = v.findViewById(R.id.txtNomePlanta);
+            txtResumoPlanta = v.findViewById(R.id.txtResumoPlanta);
+            imgModeloPlanta = v.findViewById(R.id.imgModeloPlanta);
 
-            txtNomeGato.setText(nomeGato[i]);
-            txtDescricaoGato.setText(descricaoGato[i]);
-            txtNumGato.setText(numGato[i]);
-            imgModeloGato.setImageResource(imagemGato[i]);
+            txtNomePlanta.setText(nomePlanta[i]);
+            txtResumoPlanta.setText(resumoPlanta[i]);
+            imgModeloPlanta.setImageResource(imagemPlanta[i]);
 
             return v;
 
